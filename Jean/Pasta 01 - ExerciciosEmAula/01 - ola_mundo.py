@@ -1,2 +1,2 @@
-#Programa que escreve 'Olá, Mundo!' no terminal
+#Programa que escreve 'Olá, Mundo!' na tela
 print("Olá, Mundo!")
