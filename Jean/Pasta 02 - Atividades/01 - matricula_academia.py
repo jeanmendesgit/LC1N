@@ -18,39 +18,53 @@ def add():
                                   {"label" : "a Altura do Aluno",             "value" : None}]
     
     for i in range(len(student_entry_registration)):
-        student_entry_registration[i]["value"] = input(f"Digite {student_entry_registration[i]["label"]}: ")
+        student_entry_registration[i]["value"] = input(f"\nDigite {student_entry_registration[i]["label"]}: ")
 
-    mapping = {"student_name" : "Nome do Aluno",
-               "student_email" : "Email do Aluno",
-               "student_number" : "Telefone do Aluno",
-               "stundet_whastapp" : "Possui Whatsapp",
-               "student_address" : "Endereço do Aluno",
-               "student_birthday" : "Data de Nascimento do Aluno",
-               "student_gender" : "Sexo do Aluno",
-               "student_weight" : "Peso do Aluno",
-               "student_height" : "Altura do Aluno"}
+    registration = {"student_name"      : student_entry_registration[0]["value"],
+                    "student_email"     : student_entry_registration[1]["value"],
+                    "student_number"    : student_entry_registration[2]["value"],
+                    "student_whatsapp"  : student_entry_registration[3]["value"],
+                    "student_address"   : student_entry_registration[4]["value"],
+                    "student_birthday"  : student_entry_registration[5]["value"],
+                    "student_gender"    : student_entry_registration[6]["value"],
+                    "student_weight"    : student_entry_registration[7]["value"],
+                    "student_height"    : student_entry_registration[8]["value"]}
     
-    registration = {}
-    
-    for key, label in mapping.items():
-        value = next(entry["value"] for entry in student_entry_registration if entry["label"] == label)
-        registration[key] = value
-        
-
     database.append(registration)
 
-    print("\nCadastro finalizado:")
-    for k, v in registration.items():
-        print(f"{k}: {v}")
-        
+    print(" ")
+    print("Cadrastro Finalizado!")
+
+def view():
+    print(" ")
+    print("-" * 31)
+    print("      Livro de Matriculas   ")
+    print("-" * 31)
+
+    if len(database) == 0:
+        print("\nNão há matrículas no momento...")
+
+    for i, registration in enumerate(database):
+        print(" ")
+        print(f"Matrícula: 2025AC{i + 1:04d}")
+        print(f"-> Nome do aluno: ... {registration["student_name"]}")
+        print(f"-> Email do aluno: .. {registration["student_email"]}")
+        print(f"-> Telefone do aluno: {registration["student_number"]}")
+        print(f"-> Whatsapp ativo: .. {registration["student_whatsapp"]}")
+        print(f"-> Endereço do aluno: {registration["student_address"]}")
+        print(f"-> Data de nascimeno: {registration["student_birthday"]}")
+        print(f"-> Sexo do aluno: ... {registration["student_gender"]}")
+        print(f"-> Peso do aluno: ... {registration["student_weight"]}")
+        print(F"-> Altura do aluno: . {registration["student_height"]}")
+    
     
 #main
 
 def main():
     while True:
-        print("-------------------------------")
+        print("-" * 31)
         print("     Sistema de Matriculas     ")
-        print("-------------------------------")
+        print("-" * 31)
         
         print(" 1) Adicionar matrícula.\n 2) Visualizar matrícula\n 3) Editar matrícula\n 4) Sair\n")
         
@@ -61,17 +75,19 @@ def main():
         if users_choose not in options:
             print(" ")
             print("Erro: Opção inválida!")
-            print(" ")
-            
-        match int(users_choose):
-            case 1:
-                add()
-            case 4:
-                print(" ")
-                print("Até mais! Seção encerrada...")
-                print(" ")
-                break
-            
+        else:  
+            match int(users_choose):
+                case 1:
+                    add()
+                case 2:
+                    view()
+                case 4:
+                    print(" ")
+                    print("Até mais! Seção encerrada...")
+                    print(" ")
+                    break
+
+        print(" ")  
         input("Pressione ENTER para retonar ao menu.")
 
 #start
