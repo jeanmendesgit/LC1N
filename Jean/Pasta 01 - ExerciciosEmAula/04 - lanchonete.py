@@ -15,9 +15,10 @@ categ_do_produto = input("Categoria do produto: ")
 
 # Saída
 
+print(" ")
 print("Produto", nome_do_produto)
 print("> Descrição:", descr_do_produto)
 print("> Quantidade:", quant_do_produto)
-print("> Custo:", custo_do_produto)
-print("> Preço:", preco_do_produto)
+print("> Custo: R$", custo_do_produto)
+print("> Preço: R$", preco_do_produto)
 print("> Categoria:", categ_do_produto)
