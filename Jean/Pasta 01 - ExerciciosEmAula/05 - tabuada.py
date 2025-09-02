@@ -1,10 +1,11 @@
 # Tabuada.py
 
 # Header
-print("-" * 30)
-print("       Tabuada Python")
-print("-" * 30)
-print(" ")
+
+title_1 = "Tabuada Python"
+spacing = 50
+print(f"\n{"̿" * spacing}")
+print(f"{"-" * spacing}\n{" " * int(((spacing - len(list(title_1))) / 2))}{title_1}\n{"-" * spacing}\n")
 
 # Amazenamento e Entrada de Dados
 numero1 = float(input("Digite o 1° número: "))
@@ -21,17 +22,19 @@ potenciacao   = numero1 ** numero2
 
 # Saída de Dados
 
-print(" ")
-print("-" * 30)
-print("       Tabuada Python")
-print("-" * 30)
-print(" ")
+title_2 = "Tabuada"
+print(f"\n{"-" * spacing}\n{" " * int(((spacing - len(list(title_2))) / 2))}{title_2}\n{"-" * spacing}\n")
 
-print("> Soma ->", numero1, "+", numero2, "=", soma)
-print("> Subtração ->", numero1, "-", numero2, "=", subtracao)
-print("> Multiplicação ->", numero1, "*", numero2, "=", multiplicacao)
-print("> Divisão ->", numero1, "/", numero2, "=", divisao_float)
-print("> Resto ->", numero1, "", numero2, "=", soma)
+print("> Soma          -> ", numero1, " + ", numero2, "  = ", soma)
+print("> Subtração     -> ", numero1, " - ", numero2, "  = ", subtracao)
+print("> Multiplicação -> ", numero1, " * ", numero2, "  = ", multiplicacao)
+print("> Divisão       -> ", numero1, " / ", numero2, "  = ", divisao_float)
+print("> Resto         -> ", numero1, " % ", numero2, "  = ", divisao_resto)
+print("> Resto Inteiro -> ", numero1, " // ", numero2, " = ", divisao_int)
+print("> Potenciação   -> ", numero1, " ** ", numero2, " = ", potenciacao)
+print(f"\n{"̿" * spacing}")
+
+
 
 
 
