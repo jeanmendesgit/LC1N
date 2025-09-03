@@ -1,55 +1,68 @@
 # Programa que converte temperaturas
 
-import functions as func
+import functions as fn
 
 # Variaveis
 
-spacing = 50
+spacing = 40
 
 # Funcoes
-def celsius(value):
-    fahrenheit = (value * (9/5)) + 32
-    return fahrenheit
-
 def fahrenheit(value):
-    celsius = (value - 32) * (9/2)
+    fahrenheit_value = (value * (9/5)) + 32
+    return fahrenheit_value
+
+def celsius(value):
+    celsius_value = (value - 32) / (9/5)
+    return celsius_value
 
 # Main
 def main():
     while True:
         # Header
-        func.header("Conversor de Temperturas", spacing)
+        fn.header("Conversor de Temperturas", spacing)
 
         print("Digite o número da opção:")
-        print("1) Celsius ⇥ Fahrenheit\n2) Fahrenheit ⇥ Celsius\n")
+        print("\n1) Celsius -> Fahrenheit\n2) Fahrenheit -> Celsius\n3) Sair\n")
 
         users_entry = input("Digite o número da opção: ")
 
-        if users_entry not in ['1', '2']:
-            print("Erro: Opção Invalida!")
-            main()
+        if users_entry not in ['1', '2', '3']:
+            print("\nErro: Digite uma opção válida!")
+        else:
+            match int(users_entry):
+                case 1:
+                    celsius_entry = input("\nDigite a temperatura em Celsius: ")
+
+                    if not celsius_entry.isdigit():
+                        print("\n> Inválido! Digite apenas números!")
+                    else:
+                        celsius_out = f"{celsius_entry}°C equivale a {fahrenheit(float(celsius_entry)):.2f}°F"
+                        
+                        print(" ")
+                        print("-" * spacing)
+                        print(f"{" " * ((spacing - len(celsius_out)) // 2)}", celsius_out)
+                        print("-" * spacing)
+                        
+                case 2:
+                    fahrenheit_entry = input("\nDigite a temperatura em Fahrenheit: ")
+
+                    if not fahrenheit_entry.isdigit():
+                        print("\n> Inválido! Digite apenas números!")
+                    else:
+                        fahrenheit_out = f"{fahrenheit_entry}°F equivale a {celsius(float(fahrenheit_entry)):.2f}°C"
+                        
+                        print(" ")
+                        print("-" * spacing)
+                        print(f"{" " * ((spacing - len(fahrenheit_out)) // 2)}", fahrenheit_out)
+                        print("-" * spacing)
+                case 3:
+                    print(" ")
+                    print("-" * spacing)
+                    print("\n> Programa Finalizado! Até mais...")
+                    fn.footer(spacing)
+                    break
+
+        input("\nPressione ENTER para retonar ao menu.")
         
-        match int(users_entry):
-            case 1:
-                celsius_entry = input("Digite a temperatura em Celsius: ")
-
-                # Tratamento de Dados: Vazio...
-
-                print(f"{celsius_entry}°C em Fahrenheit {celsius(float(celsius_entry))}°F")
-            case 2:
-                fahrenheit_entry = input("Digite a temperatura em Fahrenheit: ")
-
-                # Tratamento de Dados: Vazio...
-
-                print()
-
-        input("")
 # Start
-    
 main()
-
-
-
-
-
-

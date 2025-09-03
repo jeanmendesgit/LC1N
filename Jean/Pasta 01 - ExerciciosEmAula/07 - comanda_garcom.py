@@ -1,4 +1,7 @@
 # Programa que informa os 10% do Garçom
+#--------------------------------------#
+
+import functions as fn
 
 # Variaveis
 
@@ -6,12 +9,7 @@ percentage = 10
 
 # Header
 spacing = 50
-title_1 = "Restautante Se Não Matar Engorda"
-print("=" * spacing)
-print("-" * spacing)
-print(" " * (((spacing - len(list(title_1))) // 2) - 1),title_1)
-print("-" * spacing)
-print(" ")
+fn.header("Restaurante", spacing)
 
 # Entrada de Dados & Processamento
 valor_entry = float(input("Digite o valor da conta do cliente: "))

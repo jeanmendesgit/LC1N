@@ -1,7 +1,7 @@
 def header(title, spacing):
     print("=" * spacing)
     print("-" * spacing)
-    print(" " * (((spacing - len(list(title))) // 2) - 1),title)
+    print(" " * (((spacing - len(title)) // 2) - 1),title)
     print("-" * spacing)
     print(" ")
     return

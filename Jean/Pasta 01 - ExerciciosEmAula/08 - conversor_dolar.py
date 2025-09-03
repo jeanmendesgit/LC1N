@@ -1,6 +1,6 @@
 # PROGRAMA QUE CONVERTE VALORES
 
-import functions
+import functions as fn
 
 # Variaveis
 
@@ -8,7 +8,7 @@ spacing = 40
 exchange = 5.47
 
 # Header
-functions.header("Conversor", spacing)
+fn.header("Conversor", spacing)
 
 # Entrada de Dados
 
@@ -23,5 +23,5 @@ value_in_real = value * exchange
 print(" ")
 print("-" * spacing)
 print(f"\nUSD ${value} em BRL R${value_in_real:.2f}")
-functions.footer(spacing)
+fn.footer(spacing)
 

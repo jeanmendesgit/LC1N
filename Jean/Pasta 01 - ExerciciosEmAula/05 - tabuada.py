@@ -5,7 +5,7 @@ spacing = 50
 title_1 = "Tabuada Python"
 print("=" * spacing)
 print("-" * spacing)
-print(" " * (int((spacing - len(list(title_1))) / 2) - 1),title_1)
+print(" " * (((spacing - len(title_1)) // 2) - 1),title_1)
 print("-" * spacing)
 print(" ")
 
@@ -26,7 +26,7 @@ potenciacao   = numero1 ** numero2
 # Main
 title_2 = "Tabuada"
 print("-" * spacing)
-print(" " * (int((spacing - len(list(title_2))) / 2) - 1),title_2)
+print(" " * (((spacing - len(title_2)) // 2) - 1),title_2)
 print("-" * spacing)
 print(" ")
 
