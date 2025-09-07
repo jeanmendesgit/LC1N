@@ -54,7 +54,7 @@ menu_options = ctk.CTkOptionMenu(app, values=["Centímetros", "Metros"], command
 menu_options.grid(column=0, row=0, columnspan=3, pady=(21, 0))
 
 main_label = ctk.CTkLabel(app, text="Centímetros (cm):")
-main_label.grid(column=0, row=1, padx=(20, 0))
+main_label.grid(column=0, row=1, padx=(21, 0))
 
 main_entry = ctk.CTkEntry(app, placeholder_text="0", width=200)
 main_entry.grid(column=0, row=1, columnspan=3, pady=(50, 0))
