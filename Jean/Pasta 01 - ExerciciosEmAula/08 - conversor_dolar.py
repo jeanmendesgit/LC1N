@@ -20,8 +20,8 @@ value_in_real = value * exchange
 
 # Saída de Dados
 
-print(" ")
-print("-" * spacing)
-print(f"\nUSD ${value} em BRL R${value_in_real:.2f}")
+output = (f"USD ${value} em BRL R${value_in_real:.2f}")
+
+fn.highlight(output, spacing)
 fn.footer(spacing)
 

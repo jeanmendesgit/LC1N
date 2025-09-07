@@ -6,6 +6,13 @@ def header(title, spacing):
     print(" ")
     return
 
+def highlight(variable, spacing):
+    print(" ")
+    print("-" * spacing)
+    print(f"{" " * ((spacing - len(variable)) // 2)}", variable)
+    print("-" * spacing)
+    return
+
 def footer(spacing):
     print(" ")
     print("-" * spacing)

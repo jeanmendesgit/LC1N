@@ -5,28 +5,31 @@ import functions as fn
 
 # Variaveis
 
-percentage = 10
+percentage = 12
 
 # Header
 spacing = 50
 fn.header("Restaurante", spacing)
 
-# Entrada de Dados & Processamento
+# Entrada de Dados
 valor_entry = float(input("Digite o valor da conta do cliente: "))
-print(" ")
-tip = (valor_entry / 100) * percentage
-all = valor_entry + tip
 
+
+# Processamento
+tip = (valor_entry / 100) * percentage
+total = valor_entry + tip
+
+tips_label = "10% do Garçom: "
+tips_value = f" R$ {str(tip).replace(".", ",")}"
+
+totals_label = "Valor total: "
+totals_value = f" R$ {str(total).replace(".", ",")}"
 
 # Saída de Dados
-title_2 = "Comanda"
-print("-" * spacing)
-print(" " * (((spacing - len(list(title_2))) // 2) - 1),title_2)
-print("-" * spacing)
+print(" ")
+fn.header("Comanda", spacing)
 
-print(" ")
-print("10% do Garçom:", "." * 24, "R$",tip)
-print("Valor total:", "." * 26, "R$",all)
-print(" ")
-print("-" * spacing)
-print("=" * spacing)
+print(f"{tips_label}{"." * int(spacing - len(tips_label) - len(tips_value))}{tips_value}")
+print(f"{totals_label}{"." * int(spacing - len(totals_label) - len(totals_value))}{totals_value}")
+
+fn.footer(spacing)
