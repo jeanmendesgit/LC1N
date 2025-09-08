@@ -1,15 +1,18 @@
 import customtkinter as ctk
 
-# Create thw Window
+# Create the Window
 app = ctk.CTk()
 
+# -resolution
 app.title("Calculadora de Média - JM")
 app.geometry("300x400")
 app.minsize(300, 400)
 
+# -grid
 app.columnconfigure((0, 1, 2), weight=1)
 app.rowconfigure((0, 1, 2, 3, 4, 5), weight=1)
 
+# -theme
 ctk.set_appearance_mode("dark")
 
 # Variables
@@ -23,7 +26,6 @@ def fix(entry):
     return entry
 
 def media():
-    
     try:
         value_1, value_2, value_3 = float(fix(entry_1.get())), float(fix(entry_2.get())), float(fix(entry_3.get()))
 
@@ -38,19 +40,19 @@ def media():
 
 
 # Fields
-label_1 = ctk.CTkLabel(app, text="Nota 1ᴼ:")
+label_1 = ctk.CTkLabel(app, text="Nota 1°:")
 label_1.grid(column=0, row=0, pady=(0, spacing), padx=spacing, sticky="w")
 
 entry_1 = ctk.CTkEntry(app, placeholder_text="Digite a primeira nota...", width=entry_width)
 entry_1.grid(column=0, columnspan=3, row=0, pady=(spacing, 0), padx=spacing, sticky="we")
 
-label_2 = ctk.CTkLabel(app, text="Nota 2ᴼ:")
+label_2 = ctk.CTkLabel(app, text="Nota 2°:")
 label_2.grid(column=0, row=1, pady=(0, spacing), padx=spacing, sticky="w")
 
 entry_2 = ctk.CTkEntry(app, placeholder_text="Digite a segunda nota...", width=entry_width)
 entry_2.grid(column=0, columnspan=3, row=1, pady=(spacing, 0), padx=spacing, sticky="we")
 
-label_3 = ctk.CTkLabel(app, text="Nota 3ᴼ:")
+label_3 = ctk.CTkLabel(app, text="Nota 3°:")
 label_3.grid(column=0, row=2, pady=(0, spacing), padx=spacing, sticky="w")
 
 entry_3 = ctk.CTkEntry(app, placeholder_text="Digite a terceira nota...", width=entry_width)
