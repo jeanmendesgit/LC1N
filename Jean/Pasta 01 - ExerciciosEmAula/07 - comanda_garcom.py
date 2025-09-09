@@ -5,7 +5,7 @@ import functions as fn
 
 # Variaveis
 
-percentage = 12
+percentage = 10
 
 # Header
 spacing = 50
@@ -19,7 +19,7 @@ valor_entry = float(input("Digite o valor da conta do cliente: "))
 tip = (valor_entry / 100) * percentage
 total = valor_entry + tip
 
-tips_label = "10% do Garçom: "
+tips_label = f"{percentage}% do Garçom: "
 tips_value = f" R$ {str(tip).replace(".", ",")}"
 
 totals_label = "Valor total: "
