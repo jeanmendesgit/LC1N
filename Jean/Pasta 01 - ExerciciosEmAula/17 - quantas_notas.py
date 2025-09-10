@@ -61,17 +61,17 @@ def data_processing():
         value = int(entry_one.get())
         
         notes_100 = value // 100
-        value = (value - (100 * notes_100))
-        notes_50 = value // 50
-        value = (value - (50 * notes_50)) 
-        notes_20 = value // 20
-        value = (value - (20 * notes_20))
-        notes_10 = value // 10
-        value = (value - (10 * notes_10)) 
-        notes_5 = value // 5
-        value = (value - (5 * notes_5))
-        notes_2 = value // 2
-        value = (value - (2 * notes_2))
+        value    -= notes_100 * 100
+        notes_50  = value // 50
+        value    -= notes_50 * 50
+        notes_20  = value // 20
+        value    -= notes_20 * 20
+        notes_10  = value // 10
+        value    -= notes_10 * 10
+        notes_5   = value // 5
+        value    -= notes_5 * 5
+        notes_2   = value // 2
+        value    -= notes_2 * 2
         
         frame_value_one.configure(text=str(notes_100))
         frame_value_two.configure(text=str(notes_50))
