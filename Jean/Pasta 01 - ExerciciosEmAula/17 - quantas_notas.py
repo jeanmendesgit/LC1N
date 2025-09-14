@@ -5,9 +5,10 @@ app = ctk.CTk()
 app.title('Quantidade de notas')
 
 # L resolution ..................
-width, height = 300, 430
+width, height = 300, 530
 app.geometry(f"{width}x{height}")
 app.minsize(width, height)
+app.maxsize(width, height)
 
 # L grid ...............
 app.columnconfigure((0, 1 , 2), weight=1)
@@ -29,37 +30,33 @@ txt_label_one  = "Valor em dinheiro:"
 txt_button_one = "Verificar"
 pht_entry_one  = "Digite a quantidade em dinheiro... "
 
-txt_frame_title_one = "100 Reais"
-txt_frame_title_two = "50 Reais"
-txt_frame_title_three = "20 Reais"
-txt_frame_title_four = "10 Reais"
-txt_frame_title_five = "5 Reais"
-txt_frame_title_six = "2 Reais"
+txt_frame_title_one   = "200 Reais"
+txt_frame_title_two   = "100 Reais"
+txt_frame_title_three = "50 Reais"
+txt_frame_title_four  = "20 Reais"
+txt_frame_title_five  = "10 Reais"
+txt_frame_title_six   = "5 Reais"
+txt_frame_title_seven = "2 Reais"
+txt_frame_title_eight = "1 Real"
 
-txt_frame_value_one = "0"
-txt_frame_value_two = "0"
-txt_frame_value_three = "0"
-txt_frame_value_four = "0"
-txt_frame_value_five = "0"
-txt_frame_value_six = "0"
-
-
-# L colors ...................
-default_light    = "#2B2B2B"
-default_dark     = "#242424"
-buttons_color    = "#58A84F"
-buttons_hover    = "#387E30"
-buttons2_color   = "#34656C"
-buttons2_hover   = "#588D93"
-text_wrong_color = "#A84A40"
-text_right_color = "#90D288"
-tview_fg_color   = "#354543"
+# L colors .....................
+default_light      = "#2B2B2B"
+default_dark       = "#242424"
+buttons_color      = "#58A84F"
+buttons_hover      = "#387E30"
+buttons2_color     = "#34656C"
+buttons2_hover     = "#588D93"
+text_disable_color = "gray"
+text_right_color   = "#90D288"
+tview_fg_color     = "#354543"
 
 # Functions
 def data_processing():
     try:
         value = int(entry_one.get())
         
+        notes_200 = value // 200
+        value    -= notes_200 * 200
         notes_100 = value // 100
         value    -= notes_100 * 100
         notes_50  = value // 50
@@ -72,14 +69,17 @@ def data_processing():
         value    -= notes_5 * 5
         notes_2   = value // 2
         value    -= notes_2 * 2
-        
-        frame_value_one.configure(text=str(notes_100))
-        frame_value_two.configure(text=str(notes_50))
-        frame_value_three.configure(text=str(notes_20))
-        frame_value_four.configure(text=str(notes_10))
-        frame_value_five.configure(text=str(notes_5))
-        frame_value_six.configure(text=str(notes_2))
-        
+        notes_1   = value // 1
+        value    -= notes_1 * 1
+
+        frame_value_one.configure(text=str(notes_200), text_color=text_right_color)  if notes_200 != 0 else frame_value_one.configure(text="0", text_color=text_disable_color)
+        frame_value_two.configure(text=str(notes_100), text_color=text_right_color)  if notes_100 != 0 else frame_value_two.configure(text="0", text_color=text_disable_color)
+        frame_value_three.configure(text=str(notes_50), text_color=text_right_color) if notes_50 != 0 else frame_value_three.configure(text="0", text_color=text_disable_color)
+        frame_value_four.configure(text=str(notes_20), text_color=text_right_color)  if notes_20 != 0 else frame_value_four.configure(text="0", text_color=text_disable_color)
+        frame_value_five.configure(text=str(notes_10), text_color=text_right_color)  if notes_10 != 0 else frame_value_five.configure(text="0", text_color=text_disable_color)
+        frame_value_six.configure(text=str(notes_5), text_color=text_right_color)    if notes_5 != 0 else frame_value_six.configure(text="0", text_color=text_disable_color)
+        frame_value_seven.configure(text=str(notes_2), text_color=text_right_color)  if notes_2 != 0 else frame_value_seven.configure(text="0", text_color=text_disable_color)
+        frame_value_eight.configure(text=str(notes_1), text_color=text_right_color)  if notes_1 != 0 else frame_value_eight.configure(text="0", text_color=text_disable_color)
     except ValueError:
         pass
 
@@ -117,26 +117,23 @@ frame_five = ctk.CTkFrame(app,
 frame_six = ctk.CTkFrame(app,
                          height=h_frame)
 
-frame_seve = ctk.CTkFrame(app,
+frame_seven = ctk.CTkFrame(app,
+                          height=h_frame)
+
+frame_eight = ctk.CTkFrame(app,
                           height=h_frame)
 
 
 # L icon .............................................................................
 
-frame_icon_one = ctk.CTkLabel(app, text='💵', font=("",30), bg_color=default_light)
-
-frame_icon_two = ctk.CTkLabel(app, text='💵', font=("",30), bg_color=default_light)
-
+frame_icon_one   = ctk.CTkLabel(app, text='💵', font=("",30), bg_color=default_light)
+frame_icon_two   = ctk.CTkLabel(app, text='💵', font=("",30), bg_color=default_light)
 frame_icon_three = ctk.CTkLabel(app, text='💵', font=("",30), bg_color=default_light)
-
-frame_icon_four = ctk.CTkLabel(app, text='💵', font=("",30), bg_color=default_light)
-
-frame_icon_five = ctk.CTkLabel(app, text='💵', font=("",30), bg_color=default_light)
-
-frame_icon_six = ctk.CTkLabel(app, text='💵', font=("",30), bg_color=default_light)
-
-frame_icon_seve = ctk.CTkLabel(app, text='💵', font=("",30), bg_color=default_light)
-
+frame_icon_four  = ctk.CTkLabel(app, text='💵', font=("",30), bg_color=default_light)
+frame_icon_five  = ctk.CTkLabel(app, text='💵', font=("",30), bg_color=default_light)
+frame_icon_six   = ctk.CTkLabel(app, text='💵', font=("",30), bg_color=default_light)
+frame_icon_seven = ctk.CTkLabel(app, text='💵', font=("",30), bg_color=default_light)
+frame_icon_eight = ctk.CTkLabel(app, text='💵', font=("",30), bg_color=default_light)
 
 # L title ..................................................
 
@@ -176,40 +173,64 @@ frame_title_six = ctk.CTkLabel(app,
                                fg_color=default_light,
                                bg_color=default_light)
 
+frame_title_seven = ctk.CTkLabel(app,
+                               text=txt_frame_title_seven,
+                               font=("", 14),
+                               fg_color=default_light,
+                               bg_color=default_light)
+
+frame_title_eight = ctk.CTkLabel(app,
+                               text=txt_frame_title_eight,
+                               font=("", 14),
+                               fg_color=default_light,
+                               bg_color=default_light)
+
 # L value ....................................................
 
 frame_value_one = ctk.CTkLabel(app,
-                               text=txt_frame_value_one, text_color=text_right_color,
+                               text="0", text_color=text_disable_color,
                                font=("", 40),
                                fg_color=default_light,
                                bg_color=default_light)
 
 frame_value_two = ctk.CTkLabel(app,
-                               text=txt_frame_value_two, text_color=text_right_color,
+                               text="0", text_color=text_disable_color,
                                font=("", 40),
                                fg_color=default_light,
                                bg_color=default_light)
 
 frame_value_three = ctk.CTkLabel(app,
-                               text=txt_frame_value_three, text_color=text_right_color,
+                               text="0", text_color=text_disable_color,
                                font=("", 40),
                                fg_color=default_light,
                                bg_color=default_light)
 
 frame_value_four = ctk.CTkLabel(app,
-                               text=txt_frame_value_four, text_color=text_right_color,
+                               text="0", text_color=text_disable_color,
                                font=("", 40),
                                fg_color=default_light,
                                bg_color=default_light)
 
 frame_value_five = ctk.CTkLabel(app,
-                               text=txt_frame_value_five, text_color=text_right_color,
+                               text="0", text_color=text_disable_color,
                                font=("", 40),
                                fg_color=default_light,
                                bg_color=default_light)
 
 frame_value_six = ctk.CTkLabel(app,
-                               text=txt_frame_value_six, text_color=text_right_color,
+                               text="0", text_color=text_disable_color,
+                               font=("", 40),
+                               fg_color=default_light,
+                               bg_color=default_light)
+
+frame_value_seven = ctk.CTkLabel(app,
+                               text="0", text_color=text_disable_color,
+                               font=("", 40),
+                               fg_color=default_light,
+                               bg_color=default_light)
+
+frame_value_eight = ctk.CTkLabel(app,
+                               text="0", text_color=text_disable_color,
                                font=("", 40),
                                fg_color=default_light,
                                bg_color=default_light)
@@ -263,9 +284,14 @@ frame_six.grid(column=2,
                padx=(margin // 2, margin), pady=spacing,
                sticky="new")
 
-frame_seve.grid(column=0, columnspan=3,
+frame_seven.grid(column=0,
                row=6,
-               padx=margin * 5.5, pady=spacing,
+               padx=(margin, margin // 2), pady=spacing,
+               sticky="new")
+
+frame_eight.grid(column=2,
+               row=6,
+               padx=(margin // 2, margin), pady=spacing,
                sticky="new")
 
 
@@ -301,12 +327,17 @@ frame_icon_six.grid(column=2,
                     padx=(0, margin * 2), pady=(0, spacing * 2),
                     sticky="es")
 
-frame_icon_seve.grid(column=1, columnspan=3,
+frame_icon_seven.grid(column=0,
                     row=6,
-                    padx=(margin * 5.5, margin * 7.5), pady=(0, spacing * 2),
+                    padx=margin, pady=(0, spacing * 2),
                     sticky="es")
 
-# L title ................................
+frame_icon_eight.grid(column=2,
+                    row=6,
+                    padx=(0, margin * 2), pady=(0, spacing * 2),
+                    sticky="es")
+
+# L title ....................................................
 
 frame_title_one.grid(column=0,
                      row=3,
@@ -338,7 +369,17 @@ frame_title_six.grid(column=2,
                      padx=(margin, 0), pady=(spacing, 0),
                      sticky="nw")
 
-# L value .......................................................
+frame_title_seven.grid(column=0,
+                     row=6,
+                     padx=(margin*1.5, 0), pady=(spacing, 0),
+                     sticky="nw")
+
+frame_title_eight.grid(column=2,
+                     row=6,
+                     padx=(margin, 0), pady=(spacing, 0),
+                     sticky="nw")
+
+# L value ...........................................................
 
 frame_value_one.grid(column=0,
                      row=3,
@@ -367,6 +408,16 @@ frame_value_five.grid(column=0,
 
 frame_value_six.grid(column=2,
                      row=5,
+                     padx=(margin, 0), pady=(0, spacing * 1.25),
+                     sticky="sw")
+
+frame_value_seven.grid(column=0,
+                     row=6,
+                     padx=(margin*1.5, 0), pady=(0, spacing * 1.25),
+                     sticky="sw")
+
+frame_value_eight.grid(column=2,
+                     row=6,
                      padx=(margin, 0), pady=(0, spacing * 1.25),
                      sticky="sw")
 
