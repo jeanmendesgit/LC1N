@@ -24,13 +24,14 @@ rest = number_1 % number_2
 high = number_1 ** number_2
 
 if number_1 < number_2:
-    relation = "Menor"
+    relation = "<"
 elif number_1 > number_2:
-    relation = "Maior"
+    relation = ">"
 else:
-    relation = "Igual"
+    relation = "="
 
 # Saída de Dados
-output = f"DADOS\n> Soma: {sum}\n> 1° - 2°: {one_sub}> 2° - 1°: {two_sub}\n> Produto: {multiply}\n> Divisão 1°: {division}\n> Resto 1°: {rest}\n> Relação: {relation}\n> Potenciação: {high}"
+output = f"DADOS de N1°: {number_1} e N2°: {number_2}\n» {number_1} {relation} {number_2}\n» {number_1} + {number_2} = {sum}\n» {number_1} - {number_2} = {one_sub}\n» {number_2} - {number_1} = {two_sub}\n» {number_1} * {number_2} = {multiply}\n» {number_1} / {number_2} = {division:.2f}\n» {number_1} % {number_2} = {rest}\n» {number_1} ^ {number_2} = {high}"
 
-
+fn.highlight(output, spacing)
+fn.footer(spacing)
