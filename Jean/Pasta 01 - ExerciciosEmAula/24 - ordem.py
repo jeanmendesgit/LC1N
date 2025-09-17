@@ -42,5 +42,5 @@ else:
     pass
 
 # Saída de Dados
-fn.highlight(str(f"Ordem Crescente: {numbers[0]}, {numbers[1]}, {numbers[2]}"), spacing)
+fn.highlight(f"Ordem Crescente: {numbers[0]}, {numbers[1]}, {numbers[2]}", spacing)
 fn.footer(spacing)
