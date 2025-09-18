@@ -16,12 +16,15 @@ for i in range(3):
     numbers.append(int(input(f"Digite o {i + 1}° número: ")))
 
 # Processamento de Dados
-if numbers[0] < 1 or numbers[1] < 1 or numbers[2] < 1:
-    triangle = False
-elif numbers[0] < numbers[1] + numbers[2] and numbers[1] < numbers[0] + numbers[2] and numbers[2] < numbers[0] + numbers[1]:
+
+if numbers[0] < numbers[1] + numbers[2] and numbers[1] < numbers[0] + numbers[2] and numbers[2] < numbers[0] + numbers[1]:
     triangle = True
 else:
-    triangle = False
+    pass
+
+if triangle:
+    if numbers[0] == numbers[1] and numbers[1] == numbers[2]:
+        # Equilátero
 
 
 
