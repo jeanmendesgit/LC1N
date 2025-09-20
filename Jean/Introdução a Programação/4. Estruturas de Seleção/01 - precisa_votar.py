@@ -13,11 +13,9 @@ fn.header("Saiba mais Votação", spacing)
 idade_do_usuario = int(input("Digite o ano de nascimento: "))
 
 # Processamento de Dados
-
 idade = ano - idade_do_usuario
 
-# Estrutura de Dados
-
+# Estrutura & Saída de Dados
 if idade < 16:
     fn.highlight("Não pode votar!", spacing)
 

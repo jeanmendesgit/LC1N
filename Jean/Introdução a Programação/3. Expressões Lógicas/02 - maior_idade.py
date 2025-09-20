@@ -1,4 +1,4 @@
-# Programa | Idades Iguais
+# Programa | Maior Idade
 
 #Entrada de Dados
 idade_1 = int(input("Digite uma idade: "))

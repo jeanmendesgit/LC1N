@@ -9,11 +9,11 @@ spacing = 50
 # Cabecalho
 fn.header("Ordenação de 3 Números", spacing)
 
-# Entrada de dados
+# Entrada de Dados
 for i in range(3):
     entry_number.append(int(input(f"Digite o {i + 1}° número: ")))
     
-# Processamento de dados
+# Processamento de Dados
 """
 (̲3 x ̲2 x ̲1) v 3! → 6
 

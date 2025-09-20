@@ -1,13 +1,10 @@
 # Tabuada.py
 
+import functions as fn
+
 # Header
 spacing = 50
-title_1 = "Tabuada Python"
-print("=" * spacing)
-print("-" * spacing)
-print(" " * (((spacing - len(title_1)) // 2) - 1),title_1)
-print("-" * spacing)
-print(" ")
+fn.header("Tabuada Python", spacing)
 
 # Amazenamento e Entrada de Dados
 numero1 = float(input("Digite o 1° número: "))
@@ -22,13 +19,8 @@ divisao_resto = numero1 % numero2
 divisao_int   = numero1 // numero2
 potenciacao   = numero1 ** numero2
 
-
 # Main
-title_2 = "Tabuada"
-print("-" * spacing)
-print(" " * (((spacing - len(title_2)) // 2) - 1),title_2)
-print("-" * spacing)
-print(" ")
+fn.highlight("Tabuada", spacing)
 
 # Saída de Dados
 print("> Soma          -> ", numero1, " + ", numero2, "  = ", soma)

@@ -55,7 +55,7 @@ text_disable_color = "gray"
 # Functions
 def fix(value):
     if ',' in value:
-        value = value.replace(',', '.')
+        value = value
     return value
 
 def data_processing():
