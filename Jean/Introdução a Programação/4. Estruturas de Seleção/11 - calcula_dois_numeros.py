@@ -15,13 +15,13 @@ number_2 = int(input("Digite o 2° número: "))
 
 # Processamento de Dados
 
-sum = number_1 + number_2
-one_sub = number_1 - number_2
-two_sub = number_2 - number_1
+sum      = number_1 + number_2
+one_sub  = number_1 - number_2
+two_sub  = number_2 - number_1
 multiply = number_1 * number_2
 division = number_1 / number_2
-rest = number_1 % number_2
-high = number_1 ** number_2
+rest     = number_1 % number_2
+high     = number_1 ** number_2
 
 if number_1 < number_2:
     relation = "<"
