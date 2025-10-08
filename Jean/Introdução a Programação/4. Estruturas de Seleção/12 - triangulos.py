@@ -14,7 +14,7 @@ fn.header(title, spacing)
 
 # Entrada de Dados
 for i in range(3):
-    numbers.append(int(input(f"Digite o {i + 1}° número: ")))
+    numbers.append(int(input(f"Digite o valor do {i + 1}° lado: ")))
     
 # Processamento & Saída de Dados
 if numbers[1] < numbers[2] + numbers[3] and numbers[2] < numbers[1] + numbers[3] and numbers[3] < numbers[1] + numbers[2]:
