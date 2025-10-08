@@ -1,0 +1,5 @@
+# Estrutua de repetição
+
+for i in range(0, 11, 2):
+    print(f"{i}!")
+    
