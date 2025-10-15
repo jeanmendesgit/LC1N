@@ -13,6 +13,9 @@ def highlight(variable, spacing):
     print("-" * spacing)
     return
 
+def line(spacing):
+    print(f"\n{"-" * spacing}\n")
+
 def footer(spacing):
     print(" ")
     print("-" * spacing)
