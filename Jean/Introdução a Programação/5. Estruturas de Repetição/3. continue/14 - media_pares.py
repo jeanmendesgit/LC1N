@@ -1,4 +1,4 @@
-# programa que some os 5 primeiros números positivos que o usuário digitar.
+# programa que raliza a media dos 5 primeiros números pares que o usuário digitar.
 
 import functions as fn
 
