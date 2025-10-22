@@ -5,7 +5,7 @@ import functions as fn
 # Variaveis
 title, spacing = "Soma dos 5 primeiros Positivos", 50
 
-counter, numbers, total = 1, [], 0
+counter, numbers, total, media = 1, [], 0, 0
 
 line = True
 
@@ -13,17 +13,20 @@ line = True
 fn.header(title, spacing)
 
 # Entrada de Dados
-while counter < 6:
+while True:
     if line:
         if counter != 1:
             fn.line(spacing)
     else:
         print(" ")
 
-    entry = int(input(f"Digite o {counter}° número inteiro positivo: "))
+    entry = int(input(f"Digite o {counter}° número par: "))
 
-    if entry < 0:
-        fn.highlight("Ops... esse numero não é positivo!", spacing)
+    if entry == 0:
+        break
+
+    if entry % 2 != 0:
+        fn.highlight("Ops... esse numero não é par!", spacing)
         
         line = False
 
@@ -34,9 +37,17 @@ while counter < 6:
     line = True
 
 # Processamento de Dados
-for i in range(len(numbers)):
+size = len(numbers)
+
+for i in range(size):
     total += numbers[i]
 
+media = total / size
+
 # Saída de Dados
-fn.highlight(f"Total: {total}", spacing)
+if media % 1 == 0:
+    fn.highlight(f"Total: {int(media)}", spacing)
+else:
+    fn.highlight(f"Total: {media:.2f}", spacing)
+
 fn.footer(spacing)
