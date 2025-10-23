@@ -3,12 +3,13 @@
 import functions as fn
 
 # Variables
-title, spacing = "|?| Adivinhe o Número |?|", 50
+title, spacing = "|?| Adivinhe o Número |?|", 80
 
 player_1, player_2 = "Jogador 1", "Jogador 2"
 
 def play_game():
-    attempts = 10
+    attempts_init = 10
+    attempts = attempts_init
 
     print(f"{"\n" * 200}")
 
@@ -18,23 +19,61 @@ def play_game():
 
     print(f"{"\n" * 200}")
 
-    while attempts > 0:
-        
-        print(f"\n> Tentativas: {"O " * attempts}{"Ø " * (10 - attempts)}")
+    while True:
+        print(f"\n> Tentativas: {"O " * attempts}{"Ø " * (attempts_init - attempts)}")
 
-        guess = int(input(f"\n{player_2} digite seu palpite: "))
+        guess = int(input(f"\n{player_2} digite seu {(attempts_init + 1) - attempts}º palpite: "))
         attempts -= 1
 
+        if  attempts < 1:
+            fn.highlight(f"Game Over! {player_1} ganhou!!!", spacing)
+
+            break
+
         if guess == secret_number:
-            fn.highlight(f"Parabéns {player_2}! O número realmente era {secret_number}", spacing)
+            fn.highlight(f"Parabéns {player_2}! O número secrete realmente era {secret_number}", spacing)
             break
         elif guess > secret_number:
             fn.highlight(f"Que tal um número MENOR", spacing)
         elif guess < secret_number:
             fn.highlight(f"Que tal um número MAIOR", spacing)
 
+def config_game():
+    fn.header("Configurações", spacing)
+
+    print("Escolha uma das opções:\n\n1) Editar Nomes\n2) Voltar ao menu\n")
+
+    entry = input("\nDigite o número da opção: ")
+
+    match entry:
+        case '1':
+            names_editor()
+        case '2':
+            pass
+
+def names_editor():
+    fn.header("Editar Nomes", spacing)
+
+    print("Escolha uma das opções:\n\n1) Jogador 1\n2) Jogador 2\n3) Redefinir Nomes\n4) Voltar ao menu\n")
+
+    entry = input("\nDigite o número da opção: ")
+
+    match entry:
+        case '1':
+            fn.header("Editar Nomes", spacing)
+
+            player_1 = input("Digite o nome do Jogador 1: ")
+
+            fn.highlight("Nome editado com sucesso!", spacing)
+        case '2':
+            pass
+        case '3':
+            pass
+        case '4':
+            pass
+        
 # Main
-def game():
+def main_game():
     while True:
         # Header
         fn.header(title, spacing)
@@ -51,12 +90,11 @@ def game():
                 print("< Como o jogo funciona? > \n\nO Jogador 1 deve digitar um número inteiro e o\nJogador 2 terá 10 tentativas para acertar.")
                 fn.line(spacing)
             case '3':
-                pass
+                config_game()
             case '4':
                 pass
 
         input("\nDigite ENTER para retornar ao menu.")
 
-
 # MainLoop
-game()
+main_game()
