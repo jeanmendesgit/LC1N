@@ -1,6 +1,6 @@
 # Programa que informa a nomeação a partir da sigla do estado
 
-import functions as fn
+from jmutils import *
 
 # Variaveis
 title = "Gentílicos Brasileiros"
@@ -37,15 +37,15 @@ database = {
 }
 
 # Cabeçalho
-fn.header(title, spacing)
+header(title, spacing)
 
 # Entrada de Dados
 initialism = input("Digite apenas a sigla do estado: ").upper()
 
 # Saída de Dados
 try:
-    fn.highlight(f"Quem nasce em {initialism} é {database[initialism]}!", spacing)
+    highlight(f"Quem nasce em {initialism} é {database[initialism]}!", spacing)
 except KeyError:
-    fn.highlight(f"Estado não catalogado ou inexistente :(", spacing)
+    highlight(f"Estado não catalogado ou inexistente :(", spacing)
 
-fn.footer(spacing)
+footer(spacing)

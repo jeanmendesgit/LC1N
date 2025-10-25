@@ -1,13 +1,13 @@
 # Programa que mostra algumas infomacoes a partir de um numero
 
-import functions as fn
+from jmutils import *
 
 # Variaveis
 title = "Informações do número"
 spacing = 50
 
 # Cabeçalho
-fn.header(title, spacing)
+header(title, spacing)
 
 # Entrada de Dados
 number = int(input("Digite um número: "))
@@ -35,8 +35,8 @@ elif d2 == 0 and d5 == 0:
     number_division = "Ambos"
 
 # Saída de Dados
-fn.highlight(f"DADOS\n> Conjuto: {numerical_set}\n> Valor: {number_value}\n> Divisão por 2 e 5: {number_division}", spacing)
-fn.footer(spacing)
+highlight(f"DADOS\n> Conjuto: {numerical_set}\n> Valor: {number_value}\n> Divisão por 2 e 5: {number_division}", spacing)
+footer(spacing)
 
 
 

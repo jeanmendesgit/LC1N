@@ -1,6 +1,6 @@
 # Programa que converte temperaturas
 
-import functions as fn
+from jmutils import *
 
 # Variaveis
 
@@ -19,7 +19,7 @@ def celsius(value):
 def main():
     while True:
         # Header
-        fn.header("Conversor de Temperturas", spacing)
+        header("Conversor de Temperturas", spacing)
 
         print("Digite o número da opção:\n1) Celsius -> Fahrenheit\n2) Fahrenheit -> Celsius\n3) Sair\n")
 
@@ -37,7 +37,7 @@ def main():
                     else:
                         celsius_out = f"{celsius_entry}°C equivale a {fahrenheit(float(celsius_entry)):.2f}°F"
                         
-                        fn.highlight(celsius_out, spacing)
+                        highlight(celsius_out, spacing)
                 case 2:
                     fahrenheit_entry = input("\nDigite a temperatura em Fahrenheit: ")
 
@@ -46,12 +46,12 @@ def main():
                     else:
                         fahrenheit_out = f"{fahrenheit_entry}°F equivale a {celsius(float(fahrenheit_entry)):.2f}°C"
                         
-                        fn.highlight(fahrenheit_out, spacing)
+                        highlight(fahrenheit_out, spacing)
                 case 3:
                     print(" ")
                     print("-" * spacing)
                     print("\n> Programa Finalizado! Até mais...")
-                    fn.footer(spacing)
+                    footer(spacing)
                     break
 
         input("\nPressione ENTER para retonar ao menu.")

@@ -1,7 +1,7 @@
 # Programa que informa os 10% do Garçom
 #--------------------------------------#
 
-import functions as fn
+from jmutils import *
 
 # Variaveis
 
@@ -9,7 +9,7 @@ percentage = 10
 
 # Header
 spacing = 50
-fn.header("Restaurante", spacing)
+header("Restaurante", spacing)
 
 # Entrada de Dados
 valor_entry = float(input("Digite o valor da conta do cliente: "))
@@ -27,9 +27,9 @@ totals_value = f" R$ {str(total).replace(".", ",")}"
 
 # Saída de Dados
 print(" ")
-fn.header("Comanda", spacing)
+header("Comanda", spacing)
 
 print(f"{tips_label}{"." * int(spacing - len(tips_label) - len(tips_value))}{tips_value}")
 print(f"{totals_label}{"." * int(spacing - len(totals_label) - len(totals_value))}{totals_value}")
 
-fn.footer(spacing)
+footer(spacing)

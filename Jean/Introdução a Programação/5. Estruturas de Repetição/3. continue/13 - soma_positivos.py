@@ -1,6 +1,6 @@
 # programa que some os 5 primeiros números positivos que o usuário digitar.
 
-import functions as fn
+from jmutils import *
 
 # Variaveis
 title, spacing = "Soma dos 5 primeiros Positivos", 50
@@ -10,20 +10,20 @@ counter, numbers, total = 1, [], 0
 line = True
 
 # Cabeçalho
-fn.header(title, spacing)
+header(title, spacing)
 
 # Entrada de Dados
 while counter < 6:
     if line:
         if counter != 1:
-            fn.line(spacing)
+            line(spacing)
     else:
         print(" ")
 
     entry = int(input(f"Digite o {counter}° número inteiro positivo: "))
 
     if entry < 0:
-        fn.highlight("Ops... esse numero não é positivo!", spacing)
+        highlight("Ops... esse numero não é positivo!", spacing)
         
         line = False
 
@@ -38,5 +38,5 @@ for i in range(len(numbers)):
     total += numbers[i]
 
 # Saída de Dados
-fn.highlight(f"Total: {total}", spacing)
-fn.footer(spacing)
+highlight(f"Total: {total}", spacing)
+footer(spacing)

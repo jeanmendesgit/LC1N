@@ -1,6 +1,6 @@
 # Programa que dado A, B e C se constitui um triangulo ou nao e qual seria
 
-import functions as fn
+from jmutils import *
 
 # Variaveis
 title = "Validando e Classificando Triângulos"
@@ -10,7 +10,7 @@ triangle = False
 
 
 # Cabeçalho
-fn.header(title, spacing)
+header(title, spacing)
 
 # Entrada de Dados
 for i in range(3):
@@ -20,7 +20,7 @@ for i in range(3):
 if numbers[1] < numbers[2] + numbers[3] and numbers[2] < numbers[1] + numbers[3] and numbers[3] < numbers[1] + numbers[2]:
     triangle = True
 else:
-    fn.highlight("Os valores infomados não constituem um triângulo.",spacing)
+    highlight("Os valores infomados não constituem um triângulo.",spacing)
 
 if triangle:
     # Equilátero
@@ -35,9 +35,9 @@ if triangle:
     if numbers[1] != numbers[2] and numbers[1] != numbers[3] and numbers[2] != numbers[3]:
         classification = "Escaleno"
     
-    fn.highlight(f"| A = {numbers[1]} | B = {numbers[2]} | C = {numbers[3]} | constituem um triângulo « {classification.upper()} »",spacing)
+    highlight(f"| A = {numbers[1]} | B = {numbers[2]} | C = {numbers[3]} | constituem um triângulo « {classification.upper()} »",spacing)
 
-fn.footer(spacing)
+footer(spacing)
         
         
 

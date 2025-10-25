@@ -1,10 +1,10 @@
 # Tabuada.py
 
-import functions as fn
+from jmutils import *
 
 # Header
 spacing = 50
-fn.header("Tabuada Python", spacing)
+header("Tabuada Python", spacing)
 
 # Amazenamento e Entrada de Dados
 numero1 = float(input("Digite o 1° número: "))
@@ -20,7 +20,7 @@ divisao_int   = numero1 // numero2
 potenciacao   = numero1 ** numero2
 
 # Main
-fn.highlight("Tabuada", spacing)
+highlight("Tabuada", spacing)
 
 # Saída de Dados
 print("> Soma          -> ", numero1, " + ", numero2, "  = ", soma)

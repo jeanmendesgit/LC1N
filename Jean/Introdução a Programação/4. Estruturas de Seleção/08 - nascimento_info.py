@@ -1,6 +1,6 @@
 # Programa que da algumas infomações a patir do ano de nascimento
 
-import functions as fn
+from jmutils import *
 
 # Variaveis
 title = "Dados a partir do nascimento"
@@ -8,7 +8,7 @@ spacing = 50
 year = 2025
 
 # Cabeçalho
-fn.header(title, spacing)
+header(title, spacing)
 
 # Entrada de Dados
 birth = int(input("Digite seu ano de nascimento: "))
@@ -29,5 +29,5 @@ vote    = "Permitida" if age >= 16 else "Não permitida"
 license = "Permitida" if age >= 18 else "Não permitida"
 
 # Saída de Dados
-fn.highlight(f"DADOS\n> Idade: ......... {age}\n> Faixa Etária: .. {age_range}\n> Votação: ....... {vote}\n> Habilitação: ... {license}", spacing)
-fn.footer(spacing)
+highlight(f"DADOS\n> Idade: ......... {age}\n> Faixa Etária: .. {age_range}\n> Votação: ....... {vote}\n> Habilitação: ... {license}", spacing)
+footer(spacing)

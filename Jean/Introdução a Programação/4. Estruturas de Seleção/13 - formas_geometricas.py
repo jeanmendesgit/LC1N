@@ -1,6 +1,6 @@
 # Programa com ferramentas simples de apoio as aulas de matematica
 
-import functions as fn
+from jmutils import *
 
 # Variaveis
 PI = 3.14159265359
@@ -15,7 +15,7 @@ formulas = {1 : "A = L²",
 
 def main():
     while True:   
-        fn.header(title, spacing)
+        header(title, spacing)
         
         print("Qual figura será calculada:")
         print("1) Quadrado\n2) Retângulo\n3) Triângulo\n4) Círculo\n5) Sair\n")
@@ -55,14 +55,14 @@ def main():
                     
                     output = f"A = π • {radius}² = {area:.2f}"
                 case 5:
-                    fn.highlight("Até mais!", spacing)
+                    highlight("Até mais!", spacing)
                     break
                 case _:
                     print("\nOpção não encontrada!\n")
                     
-            fn.highlight(f"Fórmula: {formulas[user_choice]}", spacing)
-            fn.highlight(f"Calculo: {output}", spacing)
-            fn.footer(spacing)
+            highlight(f"Fórmula: {formulas[user_choice]}", spacing)
+            highlight(f"Calculo: {output}", spacing)
+            footer(spacing)
         except ValueError:
             print("\nErro: Valor inválido!\n")
             

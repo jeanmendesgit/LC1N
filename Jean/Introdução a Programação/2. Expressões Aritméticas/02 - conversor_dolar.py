@@ -1,6 +1,6 @@
 # PROGRAMA QUE CONVERTE VALORES
 
-import functions as fn
+from jmutils import *
 
 # Variaveis
 
@@ -8,7 +8,7 @@ spacing = 40
 exchange = 5.47
 
 # Header
-fn.header("Conversor", spacing)
+header("Conversor", spacing)
 
 # Entrada de Dados
 
@@ -22,6 +22,6 @@ value_in_real = value * exchange
 
 output = (f"USD ${value} em BRL R${value_in_real:.2f}")
 
-fn.highlight(output, spacing)
-fn.footer(spacing)
+highlight(output, spacing)
+footer(spacing)
 

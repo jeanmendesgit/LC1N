@@ -1,6 +1,6 @@
 # Programa que calcula a media de 10 alunos
 
-import functions as fn
+from jmutils import *
 
 database = {}
 spacing  = 50
@@ -22,15 +22,15 @@ def calculate(amount):
 
         database[i] = {"name" : name,  "media" : media, "status" : status}
 
-        fn.highlight(f"MÉDIA\n > Aluno {i + 1}°: {name}\n L Média: {media}\n L Situação: {status}", spacing)
+        highlight(f"MÉDIA\n > Aluno {i + 1}°: {name}\n L Média: {media}\n L Situação: {status}", spacing)
 
 def view():
     for i in range(len(database)):
-        fn.highlight(f"> Aluno {i + 1}°: {database[i]["name"]}\n L Média: {database[i]["media"]}\n L Situação: {database[i]["status"]}", spacing)
+        highlight(f"> Aluno {i + 1}°: {database[i]["name"]}\n L Média: {database[i]["media"]}\n L Situação: {database[i]["status"]}", spacing)
 
 def mainloop():
     while True:
-        fn.header("Calculadora de Médias", spacing)
+        header("Calculadora de Médias", spacing)
 
         print("Escolha uma opção: ")
         print("1) Calcular Médias\n2) Histórico de Médias\n3) Sair\n")
@@ -40,7 +40,7 @@ def mainloop():
         match option:
             case 1:
                 # Cabeçalho
-                fn.header("Calculadora de Médias", spacing)
+                header("Calculadora de Médias", spacing)
 
                 # Entrada de Dados
                 amount = int(input("Deseja calcular a média de quantos alunos? "))
@@ -50,13 +50,13 @@ def mainloop():
                 calculate(amount)
 
                 # Finalizaçao
-                fn.highlight("Todas as médias foram calculdadas com sucesso!", spacing)
+                highlight("Todas as médias foram calculdadas com sucesso!", spacing)
             case 2:
                 if len(database) == 0:
-                    fn.highlight("Ainda não foram calculadas nenhuma média!", spacing)
+                    highlight("Ainda não foram calculadas nenhuma média!", spacing)
                 else:
                     # Cabeçalho
-                    fn.highlight("Histórico de Médias", spacing)
+                    highlight("Histórico de Médias", spacing)
 
                     # Saída de Dados
                     view()

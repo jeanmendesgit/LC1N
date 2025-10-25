@@ -1,6 +1,6 @@
 # Exercicio 5 | Programa que retona a Area do Terreno em M²
 
-import functions as fn
+from jmutils import *
 
 # Variaveis
 
@@ -8,7 +8,7 @@ spacing = 40
 
 # Cabecalho
 
-fn.header("Area do Terreno", spacing)
+header("Area do Terreno", spacing)
 
 # Entrada de Dados
 
@@ -21,7 +21,6 @@ area = width * height
 
 # Saida de Dados
 
-print("-" * spacing)
-print(f"\nO Terreno possui {area}m²")
-fn.footer(spacing)
+highlight(f"O Terreno possui {area}m²", spacing)
+footer(spacing)
 

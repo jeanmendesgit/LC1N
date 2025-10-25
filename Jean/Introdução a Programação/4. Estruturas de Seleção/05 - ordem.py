@@ -1,13 +1,13 @@
 # Program que ordena números
 
-import functions as fn
+from jmutils import *
 
 # Variaveis
 entry_number = []
 spacing = 50
 
 # Cabecalho
-fn.header("Ordenação de 3 Números", spacing)
+header("Ordenação de 3 Números", spacing)
 
 # Entrada de Dados
 for i in range(3):
@@ -42,5 +42,5 @@ else:
     pass
 
 # Saída de Dados
-fn.highlight(f"Ordem Crescente: {numbers[0]}, {numbers[1]}, {numbers[2]}", spacing)
-fn.footer(spacing)
+highlight(f"Ordem Crescente: {numbers[0]}, {numbers[1]}, {numbers[2]}", spacing)
+footer(spacing)

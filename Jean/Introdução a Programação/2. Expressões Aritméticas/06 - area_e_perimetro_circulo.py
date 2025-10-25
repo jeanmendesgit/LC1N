@@ -1,6 +1,6 @@
 # Exercicio 6 | Programa que calcula a área e perímetro de um círculo
 
-import functions as fn
+from jmutils import *
 
 # Variaveis
 
@@ -9,7 +9,7 @@ spacing = 60
 
 # Cabecalho
 
-fn.header("Área e Perímetro de um Círculo", spacing)
+header("Área e Perímetro de um Círculo", spacing)
 
 # Entrada de Dados
 
@@ -24,5 +24,5 @@ perimeter = PI * 2 * ray
 
 output = f"Área: A = {area:.1f} | Perímetro: P = {perimeter:.1f}"
 
-fn.highlight(output, spacing)
-fn.footer(spacing)
+highlight(output, spacing)
+footer(spacing)

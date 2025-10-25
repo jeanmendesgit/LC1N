@@ -1,12 +1,12 @@
 # Calculadora Simples
 
-import functions as fn
+from jmutils import *
 
 # Variaveis
 title, spacing = "Calculadora Simples", 50
 
 def calc(option):
-    fn.line(spacing)
+    line(spacing)
 
     # Entrada de Dados
     n1 = int(input("Digite o 1º número: "))
@@ -24,12 +24,12 @@ def calc(option):
             value, label = n1 * n2, "x"
     
     # Saída de Dados
-    fn.highlight(f"{n1} {label} {n2} = {value}", spacing) if option != '3' else fn.highlight(f"{n1} {label} {n2} = {value:.1f}", spacing)
+    highlight(f"{n1} {label} {n2} = {value}", spacing) if option != '3' else highlight(f"{n1} {label} {n2} = {value:.1f}", spacing)
 
 # Main
 def main():
     while True:
-        fn.header(title, spacing)
+        header(title, spacing)
 
         print("Escolha uma operação entre dois números: \n\n1) Somar       (+)\n2) Subtrair    (-)\n3) Dividir     (÷)\n4) Multiplicar (x)\n5) Sair")
 
@@ -45,14 +45,14 @@ def main():
             case '4':
                 calc(entry)
             case '5':
-                fn.highlight("Encerrando o Programa", spacing)
+                highlight("Encerrando o Programa", spacing)
             case _:
-                fn.highlight("Digite uma opção válida!", spacing)
+                highlight("Digite uma opção válida!", spacing)
                 break
         
         input("\nDigite ENTER para voltar ao menu.")
 
-        fn.line(spacing)
+        line(spacing)
 
 # Start
 main()

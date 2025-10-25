@@ -1,6 +1,6 @@
 # programa que raliza a media dos 5 primeiros números pares que o usuário digitar.
 
-import functions as fn
+from jmutils import *
 
 # Variaveis
 title, spacing = "Soma dos 5 primeiros Positivos", 50
@@ -10,13 +10,13 @@ counter, numbers, total, media = 1, [], 0, 0
 line = True
 
 # Cabeçalho
-fn.header(title, spacing)
+header(title, spacing)
 
 # Entrada de Dados
 while True:
     if line:
         if counter != 1:
-            fn.line(spacing)
+            line(spacing)
     else:
         print(" ")
 
@@ -26,7 +26,7 @@ while True:
         break
 
     if entry % 2 != 0:
-        fn.highlight("Ops... esse numero não é par!", spacing)
+        highlight("Ops... esse numero não é par!", spacing)
         
         line = False
 
@@ -46,8 +46,8 @@ media = total / size
 
 # Saída de Dados
 if media % 1 == 0:
-    fn.highlight(f"Total: {int(media)}", spacing)
+    highlight(f"Total: {int(media)}", spacing)
 else:
-    fn.highlight(f"Total: {media:.2f}", spacing)
+    highlight(f"Total: {media:.2f}", spacing)
 
-fn.footer(spacing)
+footer(spacing)
