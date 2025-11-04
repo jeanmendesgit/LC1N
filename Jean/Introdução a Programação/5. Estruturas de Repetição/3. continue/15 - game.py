@@ -1,108 +1,118 @@
-# jogo entre dois usuários, um deles irá digitar um número (inteiro), e outro deve fazer chutes para acertar o número imaginado
-
 from jmutils import *
 
-# Variables
-title, spacing = "⟪ Adivinhe o Número ⟫", 80
+class Game:
+    def __init__(self):
+        self.title = "⟪ Adivinhe o Número ⟫"
+        self.spacing = 80
+        self.player_1 = "Jogador 1"
+        self.player_2 = "Jogador 2"
 
-player_1, player_2 = "Jogador 1", "Jogador 2"
+        self.main_color = 'green'
+        self.player_1_color = 'red'
+        self.player_2_color = 'blue'
 
-def play_game():
-    attempts_init = 10
-    attempts = attempts_init
+    # Menu
+    def main(self):
+        while True:
+            header_color(self.title, self.spacing, self.main_color)
+            print("Escolha uma das opções:\n")
+            options = ["Play", "Tutorial", "Configurações", "Sair"]
 
-    print(f"{"\n" * 200}")
+            for i, item in enumerate(options, start=1):
+                print(f"{colors[self.main_color]}{i}){colors['reset']} {item}")
 
-    header_color(title, spacing, 'green')
+            entry = input("\nDigite o número da opção: ")
 
-    secret_number = int(input(f"{colors['red']}{player_1}{colors['reset']} digite um número secreto: "))
+            match entry:
+                case '1':
+                    self.play()
+                case '2':
+                    self.tutorial()
+                case '3':
+                    self.config()
+                case '4':
+                    highlight("Saindo do jogo...", self.spacing)
+                    break
 
-    print("\x1b[1A\x1b[2K" + f"{player_1} digite um número secreto: " + "*" * len(str(secret_number)))
+            input(f"\nDigite {colors[self.main_color]}ENTER{colors['reset']} para retornar ao menu.\n")
 
-    while True:
-        print(f"\n> Tentativas: {"O " * attempts}{"Ø " * (attempts_init - attempts)}")
+    # Game
+    def play(self):
+        attempts_init = 10
+        attempts = attempts_init
 
-        guess = int(input(f"\n{colors['blue']}{player_1}{colors['reset']} digite seu {(attempts_init + 1) - attempts}º palpite: "))
-        attempts -= 1
+        print("\n" * 200)
+        header_color(self.title, self.spacing, self.main_color)
 
-        if  attempts < 1:
-            highlight(f"Game Over! {colors['red']}{player_1}{colors['reset']} ganhou!!!", spacing)
+        secret_number = int(input(f"{colors[self.player_1_color]}{self.player_1}{colors['reset']} digite um número secreto: "))
 
-            break
+        print("\n" * 1000)
+        print(f"{colors[self.player_1_color]}{self.player_1}{colors['reset']} digite um número secreto: {'*' * len(str(secret_number))}")
+        line(self.spacing)
 
-        if guess == secret_number:
-            highlight(f"Parabéns {colors['blue']}{player_2}{colors['reset']}! O número secrete realmente era {secret_number}", spacing)
-            break
-        elif guess > secret_number:
-            highlight(f"Que tal um número MENOR", spacing)
-        elif guess < secret_number:
-            highlight(f"Que tal um número MAIOR", spacing)
+        while attempts > 0:
+            print(f"\n> Tentativas: {'O ' * attempts}{'Ø ' * (attempts_init - attempts)}")
+            guess = int(input(f"\n{colors[self.player_2_color]}{self.player_2}{colors['reset']} digite seu {(attempts_init + 1) - attempts}º palpite: "))
+            attempts -= 1
 
-def config_game():
-    header("Configurações", spacing)
+            if guess == secret_number:
+                highlight(f"Parabéns {colors[self.player_2_color]}{self.player_2}{colors['reset']}! O número era {secret_number}", self.spacing)
+                return
+            elif guess > secret_number:
+                highlight("Tente um número MENOR", self.spacing)
+            else:
+                highlight("Tente um número MAIOR", self.spacing)
 
-    print("Escolha uma das opções:\n\n1) Editar Nomes\n2) Voltar ao menu\n")
+        highlight(f"Game Over! {colors[self.player_1_color]}{self.player_1}{colors['reset']} venceu!", self.spacing)
 
-    entry = input("\nDigite o número da opção: ")
+    # Tutorial
+    def tutorial(self):
+        header("Tutorial", self.spacing)
+        print(f"< COMO O JOGO FUNCIONA? >\n\n"
+              "- O Jogador 1 digita um número secreto.\n"
+              "- O Jogador 2 tem 10 tentativas para adivinhar.\n"
+              "- O jogo informa se o palpite está acima ou abaixo.\n"
+              "- Se acertar antes das tentativas acabarem, vence.\n"
+              "- Caso contrário, o Jogador 1 vence.")
+        footer(self.spacing)
 
-    match entry:
-        case '1':
-            names_editor()
-        case '2':
-            pass
-
-def names_editor():
-    header("Editar Nomes", spacing)
-    print("Escolha uma das opções:\n\n1) Jogador 1\n2) Jogador 2\n3) Redefinir Nomes\n4) Voltar ao menu\n")
-
-    entry = input("\nDigite o número da opção: ")
-
-    match entry:
-        case '1':
-            header("Editar Nomes", spacing)
-
-            player_1 = input("Digite o nome do Jogador 1: ")
-
-            highlight("Nome editado com sucesso!", spacing)
-        case '2':
-            pass
-        case '3':
-            pass
-        case '4':
-            pass
-        
-# Main
-def main_game():
-
-    while True:
-        i, menu = 0, ["Play", "Tutorial", "Configurações", "Sair"]
-
-        # Header
-        header_color(title, spacing, 'green')
-
-        print("Escolha uma das opções:\n")
-
-        while i < len(menu):
-            print(f"{colors['green']}{i + 1}){colors['reset']} {menu[i]}")
-            i += 1
-
-        # print("Escolha uma das opções:\n\n1) Play\n2) Tutorial\n3) Configurações\n4) Sair")
+    # Configurações
+    def config(self):
+        header("Configurações", self.spacing)
+        print("1) Editar Nomes\n2) Voltar ao menu\n")
 
         entry = input("\nDigite o número da opção: ")
 
         match entry:
             case '1':
-                play_game()
+                self.edit_names()
             case '2':
-                header("Tutorial", spacing)
-                print(f"{str("< Como o jogo funciona? >").upper()}\n\n- O Jogador 1 deve digitar um número inteiro secreto.\n- O Jogador 2 terá 10 tentativas para descobrir qual é esse número.\n- A cada tentativa, o jogo pode indicar se o palpite está acima ou abaixo do número correto.\n- Se o Jogador 2 acertar antes de esgotar as tentativas, ele vence.\n- Mas se não conseguir, o Jogador 1 vence a rodada.")
-                footer(spacing)
-            case '3':
-                config_game()
-            case '4':
+                pass
+            case _:
                 pass
 
-        input("\nDigite ENTER para retornar ao menu.")
+    def edit_names(self):
+        header("Editar Nomes", self.spacing)
+        print("1) Jogador 1\n2) Jogador 2\n3) Redefinir Nomes\n4) Voltar\n")
 
-# MainLoop
-main_game()
+        entry = input("\nEscolha: ")
+        match entry:
+            case '1':
+                line(self.spacing)
+
+                self.player_1 = input("Novo nome do Jogador 1: ")
+
+                highlight("Nome editado!", self.spacing)
+            case '2':
+                line(self.spacing)
+
+                self.player_2 = input("Novo nome do Jogador 2: ")
+                
+                highlight("Nome editado!", self.spacing)
+            case '3':
+                self.player_1, self.player_2 = "Jogador 1", "Jogador 2"
+                highlight("Nomes redefinidos!", self.spacing)
+
+if __name__ == "__main__":
+    game = Game()
+    game.main()
