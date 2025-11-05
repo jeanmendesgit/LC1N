@@ -47,7 +47,7 @@ class Game:
         secret_number = int(input(f"{colors[self.player_1_color]}{self.player_1}{colors['reset']} digite um número secreto: "))
 
         print("\n" * 1000)
-        print(f"{colors[self.player_1_color]}{self.player_1}{colors['reset']} digite um número secreto: {'*' * len(str(secret_number))}")
+        print(f"{colors[self.player_1_color]}{self.player_1}{colors['reset']} digite um número secreto: {'*' * len(str(secret_number).replace('-', ''))}")
         line(self.spacing)
 
         while attempts > 0:

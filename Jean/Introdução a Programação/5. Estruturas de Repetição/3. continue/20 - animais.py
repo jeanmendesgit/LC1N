@@ -1,5 +1,3 @@
-# pip install -i https://test.pypi.org/simple/ jmutils
-
 # -------------------------------------------------------------------------------------------------------------------------------------------------------------------- #
 
 # Programa que seja capaz de concluir qual dentre os seguintes animais foi escolhido, através de perguntas e respostas.
@@ -22,12 +20,15 @@ title, spacing, main_color = "Descobrindo o Animal Segredo", 80, 'green'
 
 animal = '?'
 
+# -------------------------------------------------------------------------------------------------------------------------------------------------------------------- #
+
+# FUNCOES
 def play():
     print()
     header_color("Pense em um Animal", spacing, main_color)
 
     while True:
-        print("Possiveis Animais: 🦁 🐴 👨 🐵 🦇 🐋 🦤 🐧 🦆 🦅 🐢 🐊 🐍")
+        print("Possiveis Animais: 🦁 🐴 👨 🐵 🦇 🐋 🦩 🐧 🦆 🦅 🐢 🐊 🐍")
 
         line_color(spacing, main_color)
 
@@ -142,5 +143,10 @@ def program():
 
         input(f"Digite {colors[main_color]}ENTER{colors['reset']} para retornar ao menu.")
 
-if __name__ == "__main__":
-    program()
+# -------------------------------------------------------------------------------------------------------------------------------------------------------------------- #
+
+# INIT
+program()
+
+# -------------------------------------------------------------------------------------------------------------------------------------------------------------------- #
+
