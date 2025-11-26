@@ -6,7 +6,7 @@ header_color("Listas", 50, 'green')
 # LISTA __________________________________________________________
 numeros = [2, 5, 10]
 
-print(f"1º Lista:   {numeros}")    # >> [2, 5, 10]
+print(f"1º Lista:   {numeros}")     # >> [2, 5, 10]
 print(f"Elemento 2:  {numeros[1]}") # >> 5
 
 # INSERIR ELEMENTOS ______________________________________________
